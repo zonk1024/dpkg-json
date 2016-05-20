@@ -2,7 +2,7 @@
 import os
 import json
 
-lines = os.popen('dpkg -l').read().split('\n')[5:-1]
+lines = os.popen('dpkg -l | grep "^ii"').read().split('\n')[5:-1]
 i = 0
 while len([l for l in lines[i].split('  ') if l]) != 4:
    i += 1
